@@ -25,4 +25,3 @@ app.listen(8800,()=>{
 
 
 
-// mongo_url=mongodb+srv://hareesh:K4GtncXoqngIQyC1@cluster0.fkf3f.mongodb.net/social-app?retryWrites=true&w=majority
