@@ -6,6 +6,7 @@ import userRoutes from "./routes/users.js";
 import commentRoutes from "./routes/comments.js"
 import videoRoutes from "./routes/videos.js"
 import authRoutes from "./routes/auth.js"
+import cookieParser from "cookie-parser"
 dotenv.config();
 const connect =()=>{
   mongoose.connect(process.env.MONGO).then(()=>{
@@ -13,6 +14,7 @@ const connect =()=>{
   })
   .catch(err=> console.log(err))
 }
+app.use(cookieParser())
 app.use(express.json());//to use json data from outside
 app.use("/api/users",userRoutes);
 app.use("/api/videos",videoRoutes);
