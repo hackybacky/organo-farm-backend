@@ -85,20 +85,20 @@ export const unsubscribe = async (req,res,next)=>{
   }
 }
 
-export const like = async(req,res,next)=>{
-  const id = req.user.id;
-  const videoId = req.params.videoId;
-  try{
-    // console.log(videoId);
-    await Video.findByIdAndUpdate(videoId,{
-      $addToSet:{likes:id},
-      $pull :{dislikes:id}
-    })
-    res.status(200).json("The video is liked successfully");
-  }catch(err){
-    next(err);
-  }
-}
+// export const like = async(req,res,next)=>{
+//   const id = req.user.id;
+//   const videoId = req.params.videoId;
+//   try{
+//     // console.log(videoId);
+//     await Video.findByIdAndUpdate(videoId,{
+//       $addToSet:{likes:id},
+//       $pull :{dislikes:id}
+//     })
+//     res.status(200).json("The video is liked successfully");
+//   }catch(err){
+//     next(err);
+//   }
+// }
 
 export const dislike = async(req,res,next)=>{
   const id = req.user.id;
