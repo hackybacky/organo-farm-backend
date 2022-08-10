@@ -53,7 +53,7 @@ export const getUser =async(req,res,next)=>{
 }
 
 
-//subscibe
+//subscibe a video
 
 export const subscribe = async (req,res,next)=>{
   try{
