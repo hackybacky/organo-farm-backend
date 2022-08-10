@@ -1,7 +1,7 @@
 import { createError } from "../Error.js";
 import User from "../models/User.js";
 import Video from "../models/Video.js";
-//update user account
+//update user account 
 export const update = async(req,res,next)=>{
 
 
@@ -23,7 +23,7 @@ export const update = async(req,res,next)=>{
   
 }
 
-// delete user account
+// delete a user account
 
 export const deleteUser = async(req,res,next)=>{
   
