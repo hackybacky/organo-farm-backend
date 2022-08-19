@@ -4,8 +4,10 @@ import { createError } from "../error.js";
 
 export const addVideo = async (req, res, next) => {
   const newVideo = new Video({ userId: req.user.id, ...req.body });
+  // console.log(req.body);
   try {
     const savedVideo = await newVideo.save();
+    // console.log("hello");
     res.status(200).json(savedVideo);
   } catch (err) {
     next(err);
@@ -16,6 +18,7 @@ export const updateVideo = async (req, res, next) => {
   try {
     const video = await Video.findById(req.params.id);
     if (!video) return next(createError(404, "Video not found!"));
+    // console.log("hello");
     if (req.user.id === video.userId) {
       const updatedVideo = await Video.findByIdAndUpdate(
         req.params.id,
@@ -32,6 +35,7 @@ export const updateVideo = async (req, res, next) => {
     next(err);
   }
 };
+
 
 export const deleteVideo = async (req, res, next) => {
   try {
@@ -68,6 +72,7 @@ export const addView = async (req, res, next) => {
   }
 };
 
+
 export const random = async (req, res, next) => {
   try {
     const videos = await Video.aggregate([{ $sample: { size: 40 } }]);
@@ -76,6 +81,7 @@ export const random = async (req, res, next) => {
     next(err);
   }
 };
+
 
 export const trend = async (req, res, next) => {
   try {
@@ -115,6 +121,7 @@ export const getByTag = async (req, res, next) => {
 
 export const search = async (req, res, next) => {
   const query = req.query.q;
+  console.log(query)
   try {
     const videos = await Video.find({
       title: { $regex: query, $options: "i" },

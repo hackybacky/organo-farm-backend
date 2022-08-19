@@ -18,6 +18,8 @@
     "express": "^4.18.1",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.5.1",
-    "nodemon": "^2.0.19"
+    "nodemon": "^2.0.19",
+    "redux-persist": "^6.0.0",
+    "start": "^5.1.0"
   }
 }

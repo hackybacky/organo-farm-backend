@@ -2,6 +2,7 @@ import { createError } from "../Error.js";
 import Comment from "../models/Comment.js";
 import Video from "../models/Video.js";
 export const addComment =async (req,res,next)=>{
+  // console.log(req.body);
   const newComment = new Comment({...req.body,userId:req.user.id});
   try{
     const savedComment=await newComment.save();
